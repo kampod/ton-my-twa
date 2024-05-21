@@ -15,7 +15,7 @@ export function useCounterContract() {
     const counterContract = useAsyncInitialize(async () => {
         if (!client) return;
         const contract = new Counter(
-            Address.parse('EQA-MF_oGZ7GwnZ6wWhlmoZfYL5GlOyuackWC1IDyP9l5Y6N')
+            Address.parse('EQAJDNLIwV3yFq0XLDapwgXZ9hH3NxdDtqdYvUOc74ZGeSn3')
         );
         return client.open(contract) as OpenedContract<Counter>;
     }, [client]);
@@ -40,6 +40,12 @@ export function useCounterContract() {
         },
         sendDecrement: () => {
             return counterContract?.sendDecrement(sender);
+        },
+        sendMultiplication: () => {
+            return counterContract?.sendMultiplication(sender);
+        },
+        sendDivision: () => {
+            return counterContract?.sendDivision(sender);
         },
     };
 }

@@ -6,7 +6,7 @@ import { useCounterContract } from './hooks/useCounterContract';
 
 function App() {
     const { connected } = useTonConnect();
-    const { value, address, sendIncrement, sendDecrement } = useCounterContract();
+    const { value, address, sendIncrement, sendDecrement, sendMultiplication, sendDivision } = useCounterContract();
 
     return (
         <div className='App'>
@@ -42,6 +42,28 @@ function App() {
                         }}
                     >
                         Decrement
+                    </a>
+                </div>
+
+                <div className='button-multiplication'>
+                    <a
+                        className={`Button ${connected ? 'Active' : 'Disabled'}`}
+                        onClick={() => {
+                            sendMultiplication();
+                        }}
+                    >
+                        Multiplication
+                    </a>
+                </div>
+
+                <div className='button-division'>
+                    <a
+                        className={`Button ${connected ? 'Active' : 'Disabled'}`}
+                        onClick={() => {
+                            sendDivision();
+                        }}
+                    >
+                        Division
                     </a>
                 </div>
             </div>
